@@ -1,0 +1,15 @@
+<div *ngFor="let feed of feedsService.feeds; let i = index" [routerLink]="[feed.id]" [queryParams]="{feedTitle: feed.title, feedBody: feed.body}">
+    <h2>{{feed.title}}</h2>
+    <p>{{feed.body}}</p>
+    <button type="button" (click)="deleteFeed(feed.id, i)">Delete</button>
+</div>
+<div class="create-feed">
+    <form class="create-feed-wrapper" [formGroup]="feedsForm" (ngSubmit)="onSubmit()">
+        <label>Title</label>
+        <input type="text" formControlName="title">
+        <label>Text</label>
+        <input type="text" formControlName="text">
+        <button>Create</button>
+    </form>
+</div>
+<button routerLink="/" (click)="logOut()">LogOut</button>
