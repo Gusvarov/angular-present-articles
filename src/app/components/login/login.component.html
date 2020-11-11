@@ -1,9 +1,14 @@
 <div class="wrapper">
     <form class="form-wrapper" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <label>Username</label>
-        <input type="text" formControlName="username">
-        <label>Password</label>
-        <input type="text" formControlName="password">
-        <button  type="submit" [disabled]="!loginForm.valid">Sign In</button>
+        <div class="username">
+            <label>Username</label>
+            <input type="text" formControlName="username">
+        </div>
+        <div class="password">
+            <label>Password</label>
+            <input type="text" formControlName="password">
+        </div>
+        <span class="hint"><b>Hint:</b>You can use random username and password, because it's not real authorization</span>
+        <button class="btn" type="submit" [disabled]="!loginForm.valid">Sign In</button>
     </form>
 </div>
