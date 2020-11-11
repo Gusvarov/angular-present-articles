@@ -31,17 +31,12 @@ export class FeedsComponent implements OnInit, OnDestroy {
   public onSubmit(): void {
     this.sub = this.feedsService.putFeed(this.feedsForm.value.title, this.feedsForm.value.text, this.id)
       .subscribe(feed => this.feedsService.feeds.push(feed));
-    console.log(this.feedsService.feeds);
     this.id++;
   }
 
   public deleteFeed(id: number, index: number): void {
     this.feedsService.deleteFeed(id);
     this.feedsService.feeds.splice(index, 1);
-  }
-
-  public getFeedData(feed): void {
-    console.log(feed);
   }
 
   public logOut(): void {
